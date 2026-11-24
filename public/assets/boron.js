@@ -60,7 +60,7 @@ float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h
 float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
 float hexd(vec2 p,float r){p=abs(p);return max(dot(p,vec2(.8660254,.5)),p.y)-r;}
 void main(){
-  vec2 p=(gl_FragCoord.xy-.5*R)/min(R.x,R.y)*2.;
+  vec2 p=(gl_FragCoord.xy-.5*R)/min(R.x,R.y)*2.7;
   float a=T*.07; p=mat2(cos(a),-sin(a),sin(a),cos(a))*p;
   float m=exp(-6.*length(p-M))*.35;
   float k=fbm(p*vec2(2.2,1.5)+vec2(0.,-T*1.5));
@@ -69,7 +69,7 @@ void main(){
   float ring=abs(hexd(q,.5+S*.04));
   float f=ring-k2*(.3+m)+.05-max(0.,q.y)*k*.34;
   float fl=1.-smoothstep(-.03,.15,f);
-  fl*=smoothstep(1.3,.6,length(p));
+  fl*=1.-smoothstep(.75,1.3,length(p));
   vec3 col=mix(vec3(.02,.22,.05),vec3(.486,1.,.31),smoothstep(.05,.7,fl));
   col=mix(col,vec3(.92,1.,.86),smoothstep(.88,1.,fl)*.55);
   col*=.5+1.*k2;
