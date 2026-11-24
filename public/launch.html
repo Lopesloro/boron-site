@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Launch a coin — Boron</title>
+<meta name="description" content="Launch a coin paired with Boron. Pick the fee treasury once; every creator fee ends in the same native burn.">
+<meta name="theme-color" content="#07090A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/boron.css?v=1">
+<script>document.documentElement.classList.add('js');setTimeout(()=>document.documentElement.classList.add('rv-all'),2500)</script>
+</head>
+<body>
+<header class="hdr" data-hdr>
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Boron home"><img src="/art/mark.svg" alt="" width="30" height="30">Boron<sup>B5</sup></a>
+    <nav data-nav><a href="/#coins">Coins</a><a href="/#path">Burn path</a><a href="/#ledger">Ledger</a><a href="#docs">Docs</a></nav>
+    <div class="split-pill">
+      <button class="c" type="button" data-connect><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="12" height="9" rx="2"/><path d="M10 8.5h4M4 4V3h7"/></svg>Connect</button>
+      <a class="btn acc sm" href="#form">Launch</a>
+    </div>
+    <button class="burger" type="button" aria-label="Menu" data-burger><svg width="18" height="18" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 13h14"/></svg></button>
+  </div>
+</header>
+
+<main class="launch">
+  <div class="wrap">
+    <span class="kicker rv">Launch</span>
+    <h1 class="h-big split" data-split style="margin-top:16px;max-width:16ch">Hang a coin on the rail.</h1>
+    <p class="lede rv" style="margin-top:18px">It pairs with Boron from the first trade. You choose where its creator fees land once, at creation; from there every fee ends in the same burn.</p>
+
+    <div class="launch-grid" id="form">
+      <form class="form rv" data-launch novalidate>
+        <div class="pair">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" maxlength="32" placeholder="Green Ember" autocomplete="off"></div>
+          <div class="field"><label for="f-sym">Ticker</label><input id="f-sym" name="symbol" maxlength="10" placeholder="EMBR" autocomplete="off"></div>
+        </div>
+        <div class="field"><label for="f-desc">Description</label><textarea id="f-desc" name="desc" maxlength="240" placeholder="What is it, in a sentence or two?"></textarea></div>
+        <div class="field"><label for="f-img">Image</label><input id="f-img" name="image" type="file" accept="image/*"><small>Square, at least 512 px. It is cut into a round medallion.</small></div>
+        <div class="field"><span style="font-weight:600;font-size:.9rem">Fee treasury</span>
+          <div class="choice">
+            <label><input type="radio" name="treasury" value="sol" checked><b>SOL</b><span>Fees buy Boron, then burn it.</span></label>
+            <label><input type="radio" name="treasury" value="b5"><b>Boron</b><span>Fees are already Boron. Straight to the burn.</span></label>
+          </div>
+          <small>Fixed at creation. It cannot be changed later.</small>
+        </div>
+        <div class="pair">
+          <div class="field"><label for="f-x">X (optional)</label><input id="f-x" name="x" placeholder="https://x.com/…"></div>
+          <div class="field"><label for="f-tg">Telegram (optional)</label><input id="f-tg" name="tg" placeholder="https://t.me/…"></div>
+        </div>
+        <button class="btn acc" type="submit" style="justify-self:start">Connect wallet to launch <span class="ic">+</span></button>
+        <small style="color:var(--tx-3)">0 platform launch fee. Network and protocol costs apply.</small>
+      </form>
+
+      <aside class="pv rv" style="--rd:.12s" aria-label="Preview">
+        <span class="kicker">Preview</span>
+        <div class="medal" data-pv-medal><img src="/art/mark.svg" alt="" style="width:52%;height:auto"></div>
+        <b data-pv-name>Your coin</b><span class="s" data-pv-sym>$TICKER</span>
+        <p data-pv-desc></p>
+        <div class="flow"><span>fees</span><span data-pv-tr>collect → buy → burn</span></div>
+      </aside>
+    </div>
+
+    <section id="docs" style="margin-top:110px">
+      <span class="kicker">Docs</span>
+      <h2 class="h-big split" data-split style="margin:16px 0 36px">How the burn works.</h2>
+      <div class="ledger">
+        <div class="lrow rv"><span class="ic mono">01</span><div><b>Pairing</b><p>Every coin launched here trades against Boron. Volume in any of them is demand for the same token.</p></div><span></span></div>
+        <div class="lrow rv"><span class="ic mono">02</span><div><b>Collection</b><p>Creator fees are collected in the asset they were paid in and recorded on their own line, apart from purchases and burns.</p></div><span></span></div>
+        <div class="lrow rv"><span class="ic mono">03</span><div><b>Conversion, only if needed</b><p>Fees paid in SOL buy Boron on the open market. Fees already paid in Boron skip this step.</p></div><span></span></div>
+        <div class="lrow rv"><span class="ic mono">04</span><div><b>Native burn</b><p>The exact amount is burned against the Boron mint in one confirmed transaction. Supply is read back from the mint, not from a counter.</p></div><span></span></div>
+        <div class="lrow rv"><span class="ic mono">05</span><div><b>Receipts</b><p>Each collection, buy and burn is listed with its transaction, so anyone can check the path from fee to fire.</p></div><span></span></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/art/mark.svg" alt="" width="24" height="24">Boron<sup>B5</sup></a>
+    <span>Independent project. Burning cuts supply, not risk. Not financial advice.</span>
+    <nav><a href="/">Home</a><a href="/#ledger">Receipts</a></nav>
+  </div>
+</footer>
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+<script src="/vendor/gsap.min.js"></script>
+<script src="/vendor/ScrollTrigger.min.js"></script>
+<script src="/vendor/lenis.min.js"></script>
+<script src="/assets/boron.js?v=1"></script>
+</body>
+</html>
